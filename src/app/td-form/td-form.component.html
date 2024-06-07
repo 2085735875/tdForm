@@ -1,0 +1,70 @@
+<div class="bodyy">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 mt-3">
+               <div class="card">
+                <!-- <div class="card-header bg-primary text-warning text-center">
+                    <h2>Template Driven Form</h2>
+                </div> -->
+                <div class="card-body">
+                    <form #signUpForm="ngForm" (ngSubmit)="onSignUp(signUpForm)">
+                        <div ngModelGroup="userDetails">
+                            <div class="form-group">
+                                <label for="username">Username <sup class="text-danger">*</sup> </label>
+                                <input type="text" minlength="6" maxlength="10" pattern="[a-zA-Z]+" ngModel id="username" required name="username" #username="ngModel" class="form-control">
+                                <p class="text-danger" *ngIf="username.touched && username.hasError('required')" >Username is a required field.</p>
+                                <p class="text-danger" *ngIf="username.dirty && username.hasError('pattern')" >Username should not includes spec char and number.</p>
+                                <p class="text-danger" *ngIf="username.dirty && username.hasError('minlength')" >Minlength should be 7.</p>
+    
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email <sup class="text-danger">*</sup> </label>
+                                <input type="text" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" id="email" required name="email" ngModel #email="ngModel" class="form-control">
+                                <p class="text-danger" *ngIf="email.touched && email.hasError('required')" >Email is a required field.</p>
+                                <p class="text-danger" *ngIf="email.dirty && email.hasError('pattern')" >Please enter valid email address.</p>
+        
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="secreteQuestion">Secrete Question <sup class="text-danger">*</sup> </label>
+                            <select type="text" id="secreteQuestion"   required name="secreteQuestion" ngModel #secreteQuestion="ngModel" class="form-control">
+                                <option  value="favourateBook">Favourate Book</option>
+                                <option value="favourateTeacher">Favourate Teacher</option>
+                            </select>
+                            <p class="text-danger" *ngIf="secreteQuestion.touched && secreteQuestion.hasError('required')" >Secrete Question is a required field.</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="answer">Answer <sup class="text-danger">*</sup></label>
+                            <input type="text" id="answer" required name="answer" ngModel #answer="ngModel" class="form-control">
+                            <p class="text-danger" *ngIf="answer.touched && answer.hasError('required')" >Answer is a required field.</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="isSubscribed">
+                                <input type="checkbox" id="isSubscribed"  name="isSubscribed" ngModel #isSubscribed="ngModel">
+                                Subscribe to Email</label>
+                            
+                        </div>
+                        <p>Mode of Contact<sup class="text-danger">*</sup></p>
+                        <p class="text-danger" *ngIf="isSubscribed.touched && isSubscribed.hasError('required')" >Mode of Contact is a required field.</p>
+                        <div class="form-group">
+                            <label for="Email">
+                                Email :  <input type="radio" required ngModel #Email="ngModel" name="contactMode" id="Email" value="Email">
+                                </label>
+                             
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">
+                                Phone : <input type="radio" required ngModel #phone="ngModel" name="contactMode" id="phone"  value="phone">
+                                </label>
+                            
+                        </div>
+                        <button class="btn btn-outline-success btn-block">Sign Up</button>
+                        <button type="button" class="btn btn-outline-primary btn-block"  (click)="patchValue()">Edit</button>
+                    </form>
+                </div>
+               </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [disabled]="signUpForm.invalid" -->
